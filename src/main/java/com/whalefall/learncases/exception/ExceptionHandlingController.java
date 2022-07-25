@@ -40,4 +40,5 @@ public class ExceptionHandlingController {
         mav.setViewName("error");
         return mav;
     }
+
 }

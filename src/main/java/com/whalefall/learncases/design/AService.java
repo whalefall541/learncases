@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class AService extends AbstractService {
+public class AService implements IService {
     @Override
-    protected boolean doService() {
+    public boolean doService() {
         log.info("do A service");
         if (true)
             throw new RuntimeException("Exception msg1");
@@ -19,9 +19,19 @@ public class AService extends AbstractService {
     }
 
     @Override
-    protected void doLog() {
-//        if (true)
-//            throw new RuntimeException("Exception msg2");
+    public boolean doServiceBefore() {
+        return false;
+    }
+
+    @Override
+    public boolean doServiceAfter() {
+        return false;
+    }
+
+    @Override
+    public void doLog() {
+        if (true)
+            throw new RuntimeException("Exception msg2");
         log.error("A1 do log");
     }
 }
