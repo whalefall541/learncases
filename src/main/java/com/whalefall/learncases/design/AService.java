@@ -19,16 +19,6 @@ public class AService implements IService {
     }
 
     @Override
-    public boolean doServiceBefore() {
-        return false;
-    }
-
-    @Override
-    public boolean doServiceAfter() {
-        return false;
-    }
-
-    @Override
     public void doLog() {
         if (true)
             throw new RuntimeException("Exception msg2");

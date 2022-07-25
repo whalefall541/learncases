@@ -7,9 +7,15 @@ package com.whalefall.learncases.design;
 public interface IService {
     boolean doService();
 
-    boolean doServiceBefore();
+    default boolean doServiceBefore() {
+        return true;
+    };
 
-    boolean doServiceAfter();
+    default boolean doServiceAfter(){
+        return true;
+    }
 
-    void doLog();
+    default void doLog(){
+
+    }
 }

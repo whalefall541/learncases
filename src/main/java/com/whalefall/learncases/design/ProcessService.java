@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 @Component
 @Slf4j
 public class ProcessService {
-    
+
     public boolean handle(IService service, Consumer<Exception> exceptionConsumer) {
         serviceBefore(service);
         service(service, exceptionConsumer);
@@ -28,6 +28,8 @@ public class ProcessService {
 
     private void serviceBefore(@NotNull IService service) {
         service.doServiceBefore();
+        log.error("service before result " + service.doServiceBefore());
+
     }
 
     private void service(@NotNull IService service, Consumer<Exception> exceptionConsumer) {
