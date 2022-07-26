@@ -1,4 +1,4 @@
-package com.whalefall.learncases.basic.override;
+package com.whalefall.learncases.override;
 
 /**
  * @author WhaleFall

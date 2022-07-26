@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.util.function.Consumer;
 
 /**
+ * 单例模式 不用
  * @author WhaleFall
  * @create 2022-07-24 6:26
  */

@@ -14,7 +14,7 @@ public class ControllerA {
 
     private IService service;
 
-    private ProcessService processService;
+    private IProcessService processService;
 
     public ControllerA(IService service, ProcessService processService) {
         this.service = service;

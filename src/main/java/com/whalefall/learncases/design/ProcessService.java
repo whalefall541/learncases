@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  */
 @Component
 @Slf4j
-public class ProcessService {
+public class ProcessService implements IProcessService{
 
     public boolean handle(IService service, Consumer<Exception> exceptionConsumer) {
         serviceBefore(service);
