@@ -4,5 +4,6 @@
 3. `com.whalefall.learncases.override` static方法可以重载 隐藏 final方法可重载不可重写
 4. `com.whalefall.learncases.design` 模板设计模式
 5. `com.whalefall.learncases.filter` 过滤器
-5. `com.whalefall.learncases.interceptor` 拦截器
-5. `com.whalefall.learncases.generic` 泛型使用
+6. `com.whalefall.learncases.interceptor` 拦截器
+7. `com.whalefall.learncases.generic` 泛型使用
+8. `com.whalefall.learncases.testsingleton` 单例设计模式下非static对象也会只有一份
