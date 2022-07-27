@@ -6,8 +6,9 @@ import java.util.HashMap;
  * @author WhaleFall
  * @create 2022-07-27 22:15
  */
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class Singleton {
-    @SuppressWarnings({"rawtypes", "unchecked"})
+
     private final HashMap<String, String> map = new HashMap();
 
     public HashMap<String, String> getMap() {
@@ -29,5 +30,4 @@ public class Singleton {
     public void put(String k, String v) {
         map.put(k, v);
     }
-
 }

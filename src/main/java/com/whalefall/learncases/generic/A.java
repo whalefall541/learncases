@@ -4,6 +4,7 @@ import com.whalefall.learncases.override.Father;
 import com.whalefall.learncases.override.Son;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -17,7 +18,7 @@ public class A<T> {
     }
 
     public <E extends Number> void doLog(E e) {
-        log.error(this.getClass() + " : " + String.valueOf(e));
+        log.error(this.getClass() + " : " + e);
     }
 
     public void testExtends(Collection<? extends Father> c){
@@ -39,8 +40,16 @@ public class A<T> {
         c.size();
     }
 
-    public <F> void testWild1(Collection<F> c) {
+    @SuppressWarnings("unchecked")
+    public static <F> Collection<F> testWild1(Collection<F> c) {
         c.add((F)new Integer(1));
         c.add((F)"1231");
+        return c;
+    }
+
+    public static void main(String[] args) {
+        Collection<Integer> c = testWild1(new ArrayList<>());
+        // testWild1 塞进去了 但是拿的时候还是得报错
+        c.forEach(System.out::println);
     }
 }
