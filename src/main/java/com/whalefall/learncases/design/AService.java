@@ -3,18 +3,32 @@ package com.whalefall.learncases.design;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.function.Consumer;
+
 /**
+ * 定义一个封装processService 实现IService的对象 进行复用
  * @author WhaleFall
  * @create 2022-07-24 6:34
  */
 @Slf4j
 @Component
 public class AService implements IService {
+
+    private final ProcessService processService;
+
+    public AService(ProcessService processService) {
+        this.processService = processService;
+    }
+
+    public boolean handle(Consumer<Exception> exceptionConsumer) {
+        return processService.handle(this, exceptionConsumer);
+    }
+
     @Override
     public boolean doService() {
         log.info("do A service");
-        if (true)
-            throw new RuntimeException("Exception msg1");
+//        if (true)
+//            throw new RuntimeException("Exception msg1");
         return true;
     }
 
@@ -22,6 +36,6 @@ public class AService implements IService {
     public void doLog() {
         if (true)
             throw new RuntimeException("Exception msg2");
-        log.error("A1 do log");
+        log.error("A do log");
     }
 }

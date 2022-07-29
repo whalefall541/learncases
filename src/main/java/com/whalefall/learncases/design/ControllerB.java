@@ -1,0 +1,41 @@
+package com.whalefall.learncases.design;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * 直接使用 ProcessService 不进行二次封装
+ * @author WhaleFall
+ * @create 2022-07-24 6:34
+ */
+@Slf4j
+@RestController
+public class ControllerB implements IService {
+    private final ProcessService processService;
+
+    public ControllerB(ProcessService processService) {
+        this.processService = processService;
+    }
+
+    @GetMapping("testB")
+    public String test() {
+        processService.handle(this, e -> log.error(e.getMessage(), e));
+        return "testb";
+    }
+
+    @Override
+    public boolean doService() {
+        log.info("do B service");
+        if (true)
+            throw new RuntimeException("B Exception msg1");
+        return true;
+    }
+
+    @Override
+    public void doLog() {
+        if (1== 1)
+            throw new RuntimeException("B Exception msg2");
+        log.error("B do log");
+    }
+}

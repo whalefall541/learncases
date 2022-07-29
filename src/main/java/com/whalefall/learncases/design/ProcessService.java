@@ -28,8 +28,6 @@ public class ProcessService implements IProcessService{
 
     private void serviceBefore(@NotNull IService service) {
         service.doServiceBefore();
-        log.error("service before result " + service.doServiceBefore());
-
     }
 
     private void service(@NotNull IService service, Consumer<Exception> exceptionConsumer) {
