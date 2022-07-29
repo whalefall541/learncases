@@ -14,9 +14,10 @@ import java.util.function.Consumer;
 @Component
 public class AService implements IService {
 
-    private final ProcessService processService;
+//    @Resource(name="processService")
+    private final IProcessService processService;
 
-    public AService(ProcessService processService) {
+    public AService(IProcessService processService) {
         this.processService = processService;
     }
 

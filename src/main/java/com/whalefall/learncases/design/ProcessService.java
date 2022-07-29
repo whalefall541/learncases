@@ -10,11 +10,12 @@ import java.util.function.Consumer;
  * @author WhaleFall
  * @create 2022-07-24 6:26
  */
-@Component
 @Slf4j
+@Component
 public class ProcessService implements IProcessService{
 
     public boolean handle(IService service, Consumer<Exception> exceptionConsumer) {
+        log.info("old ProcessService");
         serviceBefore(service);
         service(service, exceptionConsumer);
         serviceAfter(service);
